@@ -1,8 +1,8 @@
-using APIFramework;
+﻿using APIFramework;
 
 namespace APIFrameworkTests;
 
-public class GivenValidTriviaRequest_SingleTriviaService
+public class GivenValidRandomTriviaRequest_SingleTriviaService
 {
     SingleTriviaService _service;
     [OneTimeSetUp]
@@ -10,10 +10,10 @@ public class GivenValidTriviaRequest_SingleTriviaService
     {
         CallManager _callManager = new();
         _service = new(_callManager);
-        await _service.MakeRequestAsync(12);
+        await _service.MakeRandomRequestAsync();
     }
 
-    [Category("AC 1.2")]
+    [Category("AC 5.1")]
     [Test]
     public void ReturnsStatusCode200()
     {
@@ -22,7 +22,7 @@ public class GivenValidTriviaRequest_SingleTriviaService
         Assert.That(statusCode, Is.EqualTo(200));
     }
 
-    [Category("AC 1.2")]
+    [Category("AC 5.1")]
     [Test]
     public void ReturnsFoundTrue()
     {
@@ -31,7 +31,7 @@ public class GivenValidTriviaRequest_SingleTriviaService
         Assert.That(found, Is.True);
     }
 
-    [Category("AC 1.2")]
+    [Category("AC 5.1")]
     [Test]
     public void ReturnsTypeTrivia()
     {
@@ -40,21 +40,14 @@ public class GivenValidTriviaRequest_SingleTriviaService
         Assert.That(requestType, Is.EqualTo("trivia"));
     }
 
-    [Category("AC 1.2")]
-    [Test]
-    public void ReturnsCorrectNumber()
-    {
-        Assert.That(_service.Content.Number, Is.EqualTo(12));
-    }
-
-    [Category("AC 1.2")]
+    [Category("AC 5.1")]
     [Test]
     public void ReturnsYear0()
     {
         Assert.That(_service.Content.Year, Is.EqualTo(0));
     }
 
-    [Category("AC 1.2")]
+    [Category("AC 5.1")]
     [Test]
     public void ReturnsText()
     {
