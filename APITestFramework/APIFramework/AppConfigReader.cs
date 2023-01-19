@@ -1,8 +1,9 @@
 ﻿using System.Configuration;
+using static System.Net.WebRequestMethods;
 
 namespace APIFramework;
 
-internal class AppConfigReader
+public static class AppConfigReader
 {
-    public static readonly string BaseUrl = ConfigurationManager.AppSettings["BaseUrl"];
+    public static readonly string BaseUrl = ConfigurationManager.AppSettings["base_url"];
 }

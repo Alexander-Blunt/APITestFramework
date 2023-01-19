@@ -31,5 +31,14 @@ public class ValidDate
         Assert.That(found, Is.True);
     }
 
+    [Category("User Story #3")]
+    [Test]
+    public void GivenValidMonthDay_DateRequest_ReturnsTypeDate()
+    {
+        string requestType = _singleNumberService.Content.Type;
+
+        Assert.That(requestType, Is.EqualTo("date"));
+
+    }
 
 }
