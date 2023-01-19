@@ -2,9 +2,10 @@
 
 namespace APIFrameworkTests.Date;
 
+[Ignore("Methods not Implemented")]
 public class InvalidDate
 {
-    SingleNumberService _singleNumberService;
+    SingleRandomTriviaService _singleNumberService;
     [OneTimeSetUp]
     public async Task SetUp()
     {

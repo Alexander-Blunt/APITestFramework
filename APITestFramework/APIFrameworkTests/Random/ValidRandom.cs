@@ -4,20 +4,20 @@ namespace APIFrameworkTests;
 
 public class ValidRandom
 {
-    SingleNumberService _singleNumberService;
+    SingleRandomTriviaService _singleRandomTriviaService;
     [OneTimeSetUp]
     public async Task SetUp()
     {
         CallManager _callManager = new();
-        _singleNumberService = new(_callManager);
-        await _singleNumberService.MakeRequestAsync();
+        _singleRandomTriviaService = new(_callManager);
+        await _singleRandomTriviaService.MakeRequestAsync();
     }
 
     [Category("User Story #5")]
     [Test]
     public void GivenValidParameter_RandomRequest_ReturnsStatusCode200()
     {
-        int statusCode = _singleNumberService.CallManager.Response.Header.StatusCode;
+        int statusCode = _singleRandomTriviaService.CallManager.RestResponse.Header.StatusCode;
 
         Assert.That(statusCode, Is.EqualTo(200));
     }
@@ -26,7 +26,7 @@ public class ValidRandom
     [Test]
     public void GivenValidMonthDay_RandomRequest_FoundIsTrue()
     {
-        bool found = _singleNumberService.Content.Found;
+        bool found = _singleRandomTriviaService.Content.Found;
 
         Assert.That(found, Is.True);
     }

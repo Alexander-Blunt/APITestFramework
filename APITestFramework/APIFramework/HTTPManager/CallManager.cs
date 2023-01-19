@@ -12,7 +12,7 @@ public class CallManager
         _client = new RestClient(AppConfigReader.BaseUrl);
     }
 
-    public async Task<string> MakePostcodeRequestAsync(string input)
+    public async Task<string> MakeRequestAsync(string input)
     {
         //Building Request
         var request = new RestRequest(); //HTTP Request

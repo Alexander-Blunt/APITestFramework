@@ -4,7 +4,7 @@ namespace APIFrameworkTests;
 
 public class ValidDate
 {
-    SingleNumberService _singleNumberService;
+    SingleRandomTriviaService _singleNumberService;
     [OneTimeSetUp]
     public async Task SetUp()
     {
