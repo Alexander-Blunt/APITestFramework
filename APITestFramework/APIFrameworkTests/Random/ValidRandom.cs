@@ -13,9 +13,7 @@ public class ValidRandom
         await _singleNumberService.MakeRequestAsync();
     }
 
-    //given a valid parameter
-    //when i make a date request
-    //i get status 200
+    [Category("User Story #5")]
     [Test]
     public void GivenValidParameter_RandomRequest_ReturnsStatusCode200()
     {
@@ -24,9 +22,7 @@ public class ValidRandom
         Assert.That(statusCode, Is.EqualTo(200));
     }
 
-    //given a valid month and day
-    //when i make a date request
-    //then i get a date response
+    [Category("User Story #5")]
     [Test]
     public void GivenValidMonthDay_RandomRequest_FoundIsTrue()
     {

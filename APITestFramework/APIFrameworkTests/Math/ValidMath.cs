@@ -13,9 +13,7 @@ public class ValidMath
         await _singleNumberService.MakeRequestAsync();
     }
 
-    //given a valid parameter
-    //when i make a date request
-    //i get status 200
+    [Category("User Story #4")]
     [Test]
     public void GivenValidParameter_MathRequest_ReturnsStatusCode200()
     {
@@ -24,9 +22,7 @@ public class ValidMath
         Assert.That(statusCode, Is.EqualTo(200));
     }
 
-    //given a valid month and day
-    //when i make a date request
-    //then i get a date response
+    [Category("User Story #4")]
     [Test]
     public void GivenValidMonthDay_MathRequest_FoundIsTrue()
     {

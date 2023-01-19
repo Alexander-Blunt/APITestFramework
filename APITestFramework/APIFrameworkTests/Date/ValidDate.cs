@@ -13,9 +13,7 @@ public class ValidDate
         await _singleNumberService.MakeRequestAsync();
     }
 
-    //given a valid parameter
-    //when i make a date request
-    //i get status 200git 
+    [Category("User Story #3")]
     [Test]
     public void GivenValidParameter_DateRequest_ReturnsStatusCode200()
     {
@@ -24,9 +22,7 @@ public class ValidDate
         Assert.That(statusCode, Is.EqualTo(200));
     }
 
-    //given a valid month and day
-    //when i make a date request
-    //then i get a date response
+    [Category("User Story #3")]
     [Test]
     public void GivenValidMonthDay_DateRequest_FoundIsTrue()
     {

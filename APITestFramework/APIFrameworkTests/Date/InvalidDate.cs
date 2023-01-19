@@ -12,9 +12,8 @@ public class InvalidDate
         _singleNumberService = new(_callManager);
         await _singleNumberService.MakeRequestAsync();
     }
-    //given non numbers
-    //when i make a date request
-    //i get a 404 message
+
+    [Category("User Story #3")]
     public void GivenInvalidRequest_DateRequest_ReturnsCode404()
     {
         int statusCode = _singleNumberService.CallManager.Header.StatusCode;
