@@ -17,7 +17,7 @@ public class ValidDate
     [Test]
     public void GivenValidParameter_DateRequest_ReturnsStatusCode200()
     {
-        int statusCode = _singleNumberService.CallManager.Response.Header.StatusCode;
+        int statusCode = (int)_singleNumberService.CallManager.RestResponse.StatusCode;
 
         Assert.That(statusCode, Is.EqualTo(200));
     }
@@ -31,5 +31,14 @@ public class ValidDate
         Assert.That(found, Is.True);
     }
 
+    [Category("User Story #3")]
+    [Test]
+    public void GivenValidMonthDay_DateRequest_ReturnsTypeDate()
+    {
+        string requestType = _singleNumberService.Content.Type;
+
+        Assert.That(requestType, Is.EqualTo("date"));
+
+    }
 
 }
