@@ -17,7 +17,7 @@ public class ValidRandom
     [Test]
     public void GivenValidParameter_RandomRequest_ReturnsStatusCode200()
     {
-        int statusCode = _singleRandomTriviaService.CallManager.RestResponse.Header.StatusCode;
+        int statusCode = (int)_singleRandomTriviaService.CallManager.RestResponse.StatusCode;
 
         Assert.That(statusCode, Is.EqualTo(200));
     }

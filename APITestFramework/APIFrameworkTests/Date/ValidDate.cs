@@ -17,7 +17,7 @@ public class ValidDate
     [Test]
     public void GivenValidParameter_DateRequest_ReturnsStatusCode200()
     {
-        int statusCode = _singleNumberService.CallManager.Response.Header.StatusCode;
+        int statusCode = (int)_singleNumberService.CallManager.RestResponse.StatusCode;
 
         Assert.That(statusCode, Is.EqualTo(200));
     }
