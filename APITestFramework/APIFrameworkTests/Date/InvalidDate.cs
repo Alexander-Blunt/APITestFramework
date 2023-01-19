@@ -5,13 +5,13 @@ namespace APIFrameworkTests.Date;
 [Ignore("Methods not Implemented")]
 public class InvalidDate
 {
-    SingleRandomTriviaService _singleNumberService;
+    SingleTriviaService _singleNumberService;
     [OneTimeSetUp]
     public async Task SetUp()
     {
         CallManager _callManager = new();
         _singleNumberService = new(_callManager);
-        await _singleNumberService.MakeRequestAsync();
+        await _singleNumberService.MakeRandomRequestAsync();
     }
 
     [Category("User Story #3")]

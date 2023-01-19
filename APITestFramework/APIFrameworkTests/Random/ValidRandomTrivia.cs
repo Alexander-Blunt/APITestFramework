@@ -2,15 +2,15 @@
 
 namespace APIFrameworkTests;
 
-public class ValidRandom
+public class ValidRandomTrivia
 {
-    SingleRandomTriviaService _singleRandomTriviaService;
+    SingleTriviaService _singleRandomTriviaService;
     [OneTimeSetUp]
     public async Task SetUp()
     {
         CallManager _callManager = new();
         _singleRandomTriviaService = new(_callManager);
-        await _singleRandomTriviaService.MakeRequestAsync();
+        await _singleRandomTriviaService.MakeRandomRequestAsync();
     }
 
     [Category("User Story #5")]
