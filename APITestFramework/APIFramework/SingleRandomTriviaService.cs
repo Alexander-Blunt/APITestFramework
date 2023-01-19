@@ -6,7 +6,7 @@ public class SingleRandomTriviaService
 {
     #region Parameters
     public CallManager CallManager { get; set; }
-    public Model? ResponseContent { get; private set; }
+    public Model? Content { get; private set; }
     public string? ResponseString { get; private set; }
     #endregion
 
@@ -22,7 +22,7 @@ public class SingleRandomTriviaService
     {
         ResponseString = await CallManager.MakeRequestAsync("random/trivia");
 
-        ResponseContent = JsonConvert.DeserializeObject<Model>(ResponseString);
+        Content = JsonConvert.DeserializeObject<Model>(ResponseString);
     }
     #endregion
 }
