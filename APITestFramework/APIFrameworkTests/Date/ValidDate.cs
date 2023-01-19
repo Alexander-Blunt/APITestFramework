@@ -1,10 +1,4 @@
 ﻿using APIFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace APIFrameworkTests;
 
@@ -40,10 +34,6 @@ public class ValidDate
 
         Assert.That(found, Is.True);
     }
-
-    //given non numbers
-    //when i make a date request
-    //i get a 404 message
 
 
 }
