@@ -2,7 +2,7 @@ using APIFramework;
 
 namespace APIFrameworkTests;
 
-public class Tests
+public class GivenValidTriviaRequest_SingleTriviaService
 {
     SingleTriviaService _service;
     [OneTimeSetUp]
@@ -10,34 +10,54 @@ public class Tests
     {
         CallManager _callManager = new();
         _service = new(_callManager);
-        await _service.MakeRandomRequestAsync();
+        await _service.MakeRequestAsync(12);
     }
 
-    [Category("User Story #3")]
+    [Category("AC 1.2")]
     [Test]
-    public void GivenValidParameter_DateRequest_ReturnsStatusCode200()
+    public void ReturnsStatusCode200()
     {
         int statusCode = (int)_service.CallManager.RestResponse.StatusCode;
 
         Assert.That(statusCode, Is.EqualTo(200));
     }
 
-    [Category("User Story #3")]
+    [Category("AC 1.2")]
     [Test]
-    public void GivenValidMonthDay_DateRequest_FoundIsTrue()
+    public void ReturnsFoundTrue()
     {
         bool found = _service.Content.Found;
 
         Assert.That(found, Is.True);
     }
 
-    [Category("User Story #3")]
+    [Category("AC 1.2")]
     [Test]
-    public void GivenValidMonthDay_DateRequest_ReturnsTypeDate()
+    public void ReturnsTypeTrivia()
     {
         string requestType = _service.Content.Type;
 
-        Assert.That(requestType, Is.EqualTo("date"));
+        Assert.That(requestType, Is.EqualTo("trivia"));
+    }
 
+    [Category("AC 1.2")]
+    [Test]
+    public void ReturnsCorrectNumber()
+    {
+        Assert.That(_service.Content.Number, Is.EqualTo(12));
+    }
+
+    [Category("AC 1.2")]
+    [Test]
+    public void ReturnsYear0()
+    {
+        Assert.That(_service.Content.Year, Is.EqualTo(0));
+    }
+
+    [Category("AC 1.2")]
+    [Test]
+    public void ReturnsText()
+    {
+        Assert.That(_service.Content.Text, Is.Not.Null);
     }
 }

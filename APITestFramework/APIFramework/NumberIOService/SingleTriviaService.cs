@@ -17,9 +17,11 @@ public class SingleTriviaService : Service
         Content = JsonConvert.DeserializeObject<Model>(ResponseString);
     }
 
-    public override Task MakeRequestAsync(int number)
+    public override async Task MakeRequestAsync(int number)
     {
-        throw new NotImplementedException();
+        ResponseString = await CallManager.MakeRequestAsync($"{number}/trivia");
+
+        Content = JsonConvert.DeserializeObject<Model>(ResponseString);
     }
     #endregion
 }
