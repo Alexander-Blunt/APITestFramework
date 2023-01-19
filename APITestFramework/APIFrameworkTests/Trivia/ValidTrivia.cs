@@ -13,7 +13,7 @@ public class Tests
         await _service.MakeRandomRequestAsync();
     }
 
-    [Category("User Story #3")]
+    [Category("User Story #1")]
     [Test]
     public void GivenValidParameter_DateRequest_ReturnsStatusCode200()
     {
@@ -22,7 +22,7 @@ public class Tests
         Assert.That(statusCode, Is.EqualTo(200));
     }
 
-    [Category("User Story #3")]
+    [Category("User Story #1")]
     [Test]
     public void GivenValidMonthDay_DateRequest_FoundIsTrue()
     {
@@ -31,13 +31,13 @@ public class Tests
         Assert.That(found, Is.True);
     }
 
-    [Category("User Story #3")]
+    [Category("User Story #1")]
     [Test]
     public void GivenValidMonthDay_DateRequest_ReturnsTypeDate()
     {
         string requestType = _service.Content.Type;
 
-        Assert.That(requestType, Is.EqualTo("date"));
+        Assert.That(requestType, Is.EqualTo("trivia"));
 
     }
 }
