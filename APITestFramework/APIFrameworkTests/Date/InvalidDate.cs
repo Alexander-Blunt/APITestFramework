@@ -1,7 +1,7 @@
 ﻿using APIFramework;
 
 
-namespace APIFrameworkTests.Date;
+namespace APIFrameworkTests;
 
 public class InvalidDate
 {
@@ -14,6 +14,7 @@ public class InvalidDate
     }
 
     [Category("User Story #3")]
+    [Test]
     public void GivenInvalidRequest_DateRequest_ReturnsCode404()
     {
         int statusCode = (int)_service.CallManager.RestResponse.StatusCode;
