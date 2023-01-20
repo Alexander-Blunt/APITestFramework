@@ -11,15 +11,13 @@ public abstract class Service
     #endregion
 
     #region Constructors
-    public Service(CallManager callManager)
+    public Service()
     {
-        CallManager = callManager;
+        CallManager = new CallManager();
     }
     #endregion
 
     #region Methods
-    public abstract Task MakeRandomRequestAsync();
-
-    public abstract Task MakeRequestAsync(int number);
+    public abstract Task MakeRequestAsync(string number);
     #endregion
 }
