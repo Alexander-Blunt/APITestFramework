@@ -52,7 +52,7 @@ will return the following JSON
 }
 ```
 ---
-## How to use it
+## Instructions
 
 In order to begin testing, in the test class you must declare an appropriate service object based on the category you are testing.
 ```
@@ -81,7 +81,32 @@ An example of accessing the Text property would be as follows:
 string text = _myTriviaService.Content.Text;
 ```
 ---
-## How it works
+## Implementation
+
+The API requests are handled by 2 classes, ```Service``` and ```CallManager```.
+
+### CallManager
+
+The ```CallManager``` class is responsible for creating and sending the API request, implemented using the RestSharp library. It accepts
+the returned JSON and parses it to a ```Model``` class. The ```CallManager``` then returns this ```Model``` object back to its containing
+```Service```.
+
+### Service
+The ```Service``` abstract class contains method definitions for the main interface between the tester and the API. This should be the only
+object which the tester needs to interface with. 
+
+It contains a ```CallManager```, which handles the API requests and returns the parsed JSON to the Service.
+
+Subclasses of ```Service``` contain specific implementations of the ```MakeRequestAsync()``` method, which put appropriate prefixes for
+making specific requests from the API. These methods all take a string argument, which is the number(s) to be passed to the ```CallManager``` 
+as part of the API Request.
+
+The public facing functions which will be used by the tester are:
+- ```MakeRequestAsync()``` which is used in setup to create, send and return a request.
+- ```GetStatusCode()``` which returns the status code of the query.
+
+There is also the ```Content``` property, which contains the ```Model``` returned by the request. This will be directly parsed by the tester
+to obtain specific data from the request, such as ```Text``` for the body, ```Type``` for the type of request etc.
 
 ---
 ## Authors
