@@ -2,9 +2,9 @@
 
 namespace APIFrameworkTests;
 
-public class GivenValidYearRequest_SingleYearService
+public class GivenValidTriviaRequest_SingleBlankService
 {
-    YearService _service;
+    BlankService _service;
     [OneTimeSetUp]
     public async Task SetUp()
     {
@@ -36,7 +36,7 @@ public class GivenValidYearRequest_SingleYearService
     {
         string requestType = _service.Content.Type;
 
-        Assert.That(requestType, Is.EqualTo("year"));
+        Assert.That(requestType, Is.EqualTo("trivia"));
     }
 
     [Category("AC 1.2")]

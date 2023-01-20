@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace APIFramework;
 
-internal class YearService : Service
+public class YearService : Service
 {
     #region Constructors
     public YearService() : base() { }
