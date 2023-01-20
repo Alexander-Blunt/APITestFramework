@@ -1,18 +1,24 @@
 ﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace APIFramework;
 
-public class TriviaService : Service
+internal class YearService : Service
 {
     #region Constructors
-    public TriviaService() : base() { }
+    public YearService() : base() { }
     #endregion
 
     #region Methods
 
     public override async Task MakeRequestAsync(string number)
     {
-        ResponseString = await CallManager.MakeRequestAsync($"{number}/trivia");
+        ResponseString = await CallManager.MakeRequestAsync($"{number}/year");
 
         try
         {

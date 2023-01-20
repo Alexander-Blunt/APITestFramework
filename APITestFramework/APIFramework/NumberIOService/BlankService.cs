@@ -2,17 +2,16 @@
 
 namespace APIFramework;
 
-public class TriviaService : Service
+public class BlankService : Service
 {
     #region Constructors
-    public TriviaService() : base() { }
+    public BlankService() : base() { }
     #endregion
 
     #region Methods
-
-    public override async Task MakeRequestAsync(string number)
+    public override async Task MakeRequestAsync(string resource)
     {
-        ResponseString = await CallManager.MakeRequestAsync($"{number}/trivia");
+        ResponseString = await CallManager.MakeRequestAsync(resource);
 
         try
         {

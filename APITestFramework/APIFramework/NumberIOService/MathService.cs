@@ -14,7 +14,13 @@ public class MathService : Service
     {
         ResponseString = await CallManager.MakeRequestAsync($"{number}/math");
 
-        Content = JsonConvert.DeserializeObject<Model>(ResponseString);
+        try
+        {
+            Content = JsonConvert.DeserializeObject<Model>(ResponseString);
+        }
+        catch (JsonReaderException e)
+        {
+        }
     }
     #endregion
 }
