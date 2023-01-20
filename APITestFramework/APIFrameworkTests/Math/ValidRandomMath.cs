@@ -4,20 +4,20 @@ namespace APIFrameworkTests;
 
 public class ValidRandomMath
 {
-    SingleMathService _singleRandomMathService;
+    SingleMathService _Service;
     [OneTimeSetUp]
     public async Task SetUp()
     {
         CallManager _callManager = new();
-        _singleRandomMathService = new(_callManager);
-        await _singleRandomMathService.MakeRandomRequestAsync();
+        _Service = new(_callManager);
+        await _Service.MakeRequestAsync("random");
     }
 
     [Category("User Story #4")]
     [Test]
     public void GivenValidParameter_RandomRequest_ReturnsStatusCode200()
     {
-        int statusCode = (int)_singleRandomMathService.CallManager.RestResponse.StatusCode;
+        int statusCode = (int)_Service.CallManager.RestResponse.StatusCode;
 
         Assert.That(statusCode, Is.EqualTo(200));
     }
@@ -26,7 +26,7 @@ public class ValidRandomMath
     [Test]
     public void GivenNumber_RandomRequest_FoundIsTrue()
     {
-        bool found = _singleRandomMathService.Content.Found;
+        bool found = _Service.Content.Found;
 
         Assert.That(found, Is.True);
     }
