@@ -4,13 +4,12 @@ namespace APIFrameworkTests;
 
 public class GivenValidRandomTriviaRequest_SingleTriviaService
 {
-    SingleTriviaService _service;
+    TriviaService _service;
     [OneTimeSetUp]
     public async Task SetUp()
     {
-        CallManager _callManager = new();
-        _service = new(_callManager);
-        await _service.MakeRandomRequestAsync();
+        _service = new();
+        await _service.MakeRequestAsync("random");
     }
 
     [Category("AC 5.1")]
