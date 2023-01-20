@@ -105,7 +105,7 @@ The public facing functions which will be used by the tester are:
 - ```MakeRequestAsync()``` which is used in setup to create, send and return a request.
 - ```GetStatusCode()``` which returns the status code of the query.
 
-There is also the ```Content``` property, which contains the ```Model``` returned by the request. This will be directly parsed by the tester
+There is also the ```Content``` property, which contains the ```Model``` returned by the request. This will be directly accessed by the tester
 to obtain specific data from the request, such as ```Text``` for the body, ```Type``` for the type of request etc.
 
 ---
