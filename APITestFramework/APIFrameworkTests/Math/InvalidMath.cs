@@ -1,7 +1,6 @@
 ﻿using APIFramework;
 
 namespace APIFrameworkTests;
-[Ignore("Not fixed yet")]
 public class InvalidMath
 {
     SingleMathService _Service;
