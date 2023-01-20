@@ -94,7 +94,7 @@ the returned JSON, then returns a ```RestResponse``` object back to its containi
 The ```Service``` abstract class contains method definitions for the main interface between the tester and the API. This should be the only
 object which the tester needs to interface with. 
 
-It contains a ```CallManager```, which handles the API requests and returns the parsed JSON to the Service.
+It contains a ```CallManager```, which handles the API requests and returns the ```RestResponse```.
 
 Subclasses of ```Service``` contain specific implementations of the ```MakeRequestAsync()``` method, which put appropriate suffixes for
 making specific requests from the API. These methods all take a string argument, which is the number(s) to be passed to the ```CallManager``` 
