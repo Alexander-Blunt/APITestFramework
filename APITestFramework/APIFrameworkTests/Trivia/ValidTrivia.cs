@@ -4,13 +4,12 @@ namespace APIFrameworkTests;
 
 public class GivenValidTriviaRequest_SingleTriviaService
 {
-    SingleTriviaService _service;
+    TriviaService _service;
     [OneTimeSetUp]
     public async Task SetUp()
     {
-        CallManager _callManager = new();
-        _service = new(_callManager);
-        await _service.MakeRequestAsync(12);
+        _service = new();
+        await _service.MakeRequestAsync("12");
     }
 
     [Category("AC 1.2")]
