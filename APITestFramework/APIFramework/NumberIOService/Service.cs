@@ -19,5 +19,10 @@ public abstract class Service
 
     #region Methods
     public abstract Task MakeRequestAsync(string number);
+
+    public int GetStatus()
+    {
+        return (int)CallManager.RestResponse.StatusCode;
+    }
     #endregion
 }

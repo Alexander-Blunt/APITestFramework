@@ -16,7 +16,7 @@ public class GivenInvalidTriviaRequest_SingleBlankService
     [Test]
     public void ReturnsStatusCode404()
     {
-        int statusCode = (int)_service.CallManager.RestResponse.StatusCode;
+        int statusCode = _service.GetStatus();
 
         Assert.That(statusCode, Is.EqualTo(404));
     }
