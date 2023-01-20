@@ -1,11 +1,10 @@
 ﻿using APIFramework;
 
-
 namespace APIFrameworkTests;
 
-public class InvalidDate
+public class GivenInvalidTriviaRequest_SingleTriviaService
 {
-    DateService _service;
+    TriviaService _service;
     [OneTimeSetUp]
     public async Task SetUp()
     {
@@ -13,13 +12,12 @@ public class InvalidDate
         await _service.MakeRequestAsync("garbage");
     }
 
-    [Category("User Story #3")]
+    [Category("AC 1.3")]
     [Test]
-    public void GivenInvalidRequest_DateRequest_ReturnsCode404()
+    public void ReturnsStatusCode404()
     {
         int statusCode = (int)_service.CallManager.RestResponse.StatusCode;
 
         Assert.That(statusCode, Is.EqualTo(404));
     }
-
 }
