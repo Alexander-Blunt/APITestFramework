@@ -16,7 +16,7 @@ public class InvalidMath
     [Test]
     public void GivenInvalidRequest_MathRequest_ReturnsCode404()
     {
-        int statusCode = (int)_Service.CallManager.RestResponse.StatusCode;
+        int statusCode = _Service.GetStatus();
 
         Assert.That(statusCode, Is.EqualTo(404));
     }

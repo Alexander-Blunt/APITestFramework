@@ -16,7 +16,7 @@ public class GivenValidYearRequest_SingleYearService
     [Test]
     public void ReturnsStatusCode200()
     {
-        int statusCode = (int)_service.CallManager.RestResponse.StatusCode;
+        int statusCode = _service.GetStatus();
 
         Assert.That(statusCode, Is.EqualTo(200));
     }

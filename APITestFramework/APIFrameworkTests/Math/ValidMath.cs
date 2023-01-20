@@ -16,7 +16,7 @@ public class ValidMath
     [Test] 
     public void GivenValidParameter_MathRequest_ReturnsStatusCode200()
     {
-        int statusCode = (int)_Service.CallManager.RestResponse.StatusCode;
+        int statusCode = _Service.GetStatus();
 
         Assert.That(statusCode, Is.EqualTo(200));
     }

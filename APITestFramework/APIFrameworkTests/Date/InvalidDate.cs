@@ -17,7 +17,7 @@ public class InvalidDate
     [Test]
     public void GivenInvalidRequest_DateRequest_ReturnsCode404()
     {
-        int statusCode = (int)_service.CallManager.RestResponse.StatusCode;
+        int statusCode = _service.GetStatus();
 
         Assert.That(statusCode, Is.EqualTo(404));
     }
