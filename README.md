@@ -3,7 +3,9 @@ A testing framework for the API at numbersapi.com
 
 ## Installation
 
-??
+1. Download the project and unzip
+2. Open the solution file with visual studio
+
 ---
 ## Information about the Numbers API
 
