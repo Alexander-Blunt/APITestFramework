@@ -88,8 +88,7 @@ The API requests are handled by 2 classes, ```Service``` and ```CallManager```.
 ### CallManager
 
 The ```CallManager``` class is responsible for creating and sending the API request, implemented using the RestSharp library. It accepts
-the returned JSON and parses it to a ```Model``` class. The ```CallManager``` then returns this ```Model``` object back to its containing
-```Service```.
+the returned JSON, then returns a ```RestResponse``` object back to its containing ```Service```.
 
 ### Service
 The ```Service``` abstract class contains method definitions for the main interface between the tester and the API. This should be the only
@@ -97,9 +96,12 @@ object which the tester needs to interface with.
 
 It contains a ```CallManager```, which handles the API requests and returns the parsed JSON to the Service.
 
-Subclasses of ```Service``` contain specific implementations of the ```MakeRequestAsync()``` method, which put appropriate prefixes for
+Subclasses of ```Service``` contain specific implementations of the ```MakeRequestAsync()``` method, which put appropriate suffixes for
 making specific requests from the API. These methods all take a string argument, which is the number(s) to be passed to the ```CallManager``` 
 as part of the API Request.
+
+After the ```CallManager``` returns a ```RestResponse```, the ```Service``` then parses this into a public ```Model``` object, which has public
+properties.
 
 The public facing functions which will be used by the tester are:
 - ```MakeRequestAsync()``` which is used in setup to create, send and return a request.
