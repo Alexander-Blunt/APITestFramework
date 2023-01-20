@@ -4,16 +4,15 @@ namespace APIFrameworkTests;
 
 public class ValidMath
 {
-    SingleMathService _Service;
+    MathService _Service;
     [OneTimeSetUp]
     public async Task SetUp()
     {
-        CallManager _callManager = new();
-        _Service = new(_callManager);
+        _Service = new();
         await _Service.MakeRequestAsync("5");
     }
 
-    [Category("User Story #4")]
+    [Category("AC 4.1")]
     [Test] 
     public void GivenValidParameter_MathRequest_ReturnsStatusCode200()
     {
@@ -22,7 +21,7 @@ public class ValidMath
         Assert.That(statusCode, Is.EqualTo(200));
     }
 
-    [Category("User Story #4")]
+    [Category("AC 4.1")]
     [Test]
     public void GivenValidMonthDay_MathRequest_FoundIsTrue()
     {
@@ -31,7 +30,7 @@ public class ValidMath
         Assert.That(found, Is.True);
     }
 
-    [Category("User Story #4")]
+    [Category("AC 4.1")]
     [Test] 
     public void GivenValidNumber_MathRequest_ReturnsTypeMath()
     {
