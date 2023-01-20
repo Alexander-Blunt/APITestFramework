@@ -2,11 +2,11 @@
 
 namespace APIFramework;
 
-public class SingleMathService : Service
+public class MathService : Service
 {
 
     #region Constructors
-    public SingleMathService(CallManager callManager) : base() { }
+    public MathService() : base() { }
     #endregion
 
     #region Methods
