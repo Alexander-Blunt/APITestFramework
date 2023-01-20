@@ -9,7 +9,12 @@ public class DateService : Service
     public override async Task MakeRequestAsync(string number)
     {
         ResponseString = await CallManager.MakeRequestAsync($"{number}/date");
-
-        Content = JsonConvert.DeserializeObject<Model>(ResponseString);
+		try
+		{
+            Content = JsonConvert.DeserializeObject<Model>(ResponseString);
+        }
+        catch (JsonReaderException e)
+		{
+		}
     }
 }

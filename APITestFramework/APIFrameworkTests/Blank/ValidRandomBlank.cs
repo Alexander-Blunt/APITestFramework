@@ -2,17 +2,17 @@
 
 namespace APIFrameworkTests;
 
-public class GivenValidYearRequest_SingleYearService
+public class GivenValidRandomTriviaRequest_SingleBlankService
 {
-    YearService _service;
+    BlankService _service;
     [OneTimeSetUp]
     public async Task SetUp()
     {
         _service = new();
-        await _service.MakeRequestAsync("12");
+        await _service.MakeRequestAsync("random");
     }
 
-    [Category("AC 1.2")]
+    [Category("AC 5.1")]
     [Test]
     public void ReturnsStatusCode200()
     {
@@ -21,7 +21,7 @@ public class GivenValidYearRequest_SingleYearService
         Assert.That(statusCode, Is.EqualTo(200));
     }
 
-    [Category("AC 1.2")]
+    [Category("AC 5.1")]
     [Test]
     public void ReturnsFoundTrue()
     {
@@ -30,30 +30,23 @@ public class GivenValidYearRequest_SingleYearService
         Assert.That(found, Is.True);
     }
 
-    [Category("AC 1.2")]
+    [Category("AC 5.1")]
     [Test]
     public void ReturnsTypeTrivia()
     {
         string requestType = _service.Content.Type;
 
-        Assert.That(requestType, Is.EqualTo("year"));
+        Assert.That(requestType, Is.EqualTo("trivia"));
     }
 
-    [Category("AC 1.2")]
-    [Test]
-    public void ReturnsCorrectNumber()
-    {
-        Assert.That(_service.Content.Number, Is.EqualTo(12));
-    }
-
-    [Category("AC 1.2")]
+    [Category("AC 5.1")]
     [Test]
     public void ReturnsYear0()
     {
         Assert.That(_service.Content.Year, Is.EqualTo(0));
     }
 
-    [Category("AC 1.2")]
+    [Category("AC 5.1")]
     [Test]
     public void ReturnsText()
     {
