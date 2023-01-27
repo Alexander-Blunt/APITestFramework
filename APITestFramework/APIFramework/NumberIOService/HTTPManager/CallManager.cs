@@ -7,19 +7,19 @@ namespace APIFramework;
 public class CallManager
 {
     private readonly HttpClient _client;
-    public HttpResponseHeaders responseHeader { get; set; }
-    public HttpContent responseContent { get; set; }
+    public HttpResponseHeaders ResponseHeaders { get; set; }
+    public string ResponseContent { get; set; }
 
     public CallManager()
     {
         _client = new HttpClient();
     }
     
-    public async Task<string> MakeRequestAsync(string input)
+    public async Task MakeRequestAsync(string input)
     {
-        var request = new HttpRequestMessage(HttpMethod.Get, $"AppConfigReader.BaseUrl{input}");
+        var request = new HttpRequestMessage(HttpMethod.Get, AppConfigReader.BaseUrl +input);
         var response = await _client.SendAsync(request);
-        responseHeader = response.Headers;
-        responseContent = response.Content;
+        ResponseHeaders = response.Headers;
+        ResponseContent = response.Content.ToString();
     }
 }
