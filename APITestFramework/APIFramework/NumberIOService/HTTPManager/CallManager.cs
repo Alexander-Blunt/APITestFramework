@@ -6,6 +6,7 @@ public class CallManager
 {
     private readonly RestClient _client;
     public RestResponse RestResponse { get; set; }
+    public string Content { get; internal set; }
 
     public CallManager()
     {
