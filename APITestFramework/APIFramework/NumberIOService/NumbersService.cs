@@ -7,7 +7,6 @@ public class NumbersService
 {
     #region Parameters
     public CallManager CallManager { get; set; }
-    public HttpResponseHeaders? Headers { get; set; }
     public DTO DTO { get; set; }
     public Model? Content { get; set; }
     public string? ContentString { get; set; }
@@ -25,14 +24,13 @@ public class NumbersService
     public async Task MakeRequestAsync(string endpoint)
     {
         await CallManager.MakeRequestAsync(endpoint);
-        Headers = CallManager.ResponseHeaders;
         DTO.DeserializeJson(CallManager.ResponseContent);
         Content = DTO.Content;
     }
 
     public int GetStatus()
     {
-        return int.Parse(Headers.GetValues("status").First());
+        return CallManager.GetStatusCode();
     }
     #endregion
 }

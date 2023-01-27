@@ -8,8 +8,10 @@ namespace APIFrameworkTests.FrameworkTests;
 
 public class ServiceTests
 {
+    [Ignore("not implemented")]
+    [Category("Service Test")]
     [Test]
-    public void GivenIWantToAccessANEndpoint_WhenIUseThatEndpointAsAnArgument_ThenIGetAResponse()
+    public void GivenAnEndpoint_MakeRequest_()
     {
 
     }

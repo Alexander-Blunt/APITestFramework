@@ -20,6 +20,12 @@ public class CallManager
         var request = new HttpRequestMessage(HttpMethod.Get, AppConfigReader.BaseUrl +input);
         var response = await _client.SendAsync(request);
         ResponseHeaders = response.Headers;
-        ResponseContent = response.Content.ToString();
+        ResponseContent = await response.Content.ReadAsStringAsync();
     }
+
+    public int GetStatusCode()
+    {
+        return int.Parse(ResponseHeaders.GetValues("status").First());
+    }
+
 }
