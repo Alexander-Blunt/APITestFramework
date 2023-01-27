@@ -5,19 +5,19 @@ namespace APIFrameworkTests;
 
 public class ValidDate
 {
-    DateService _service;
-    List<DateService> _dateServices;
+    NumbersService _service;
+    List<NumbersService> _numberServices;
     [OneTimeSetUp]
     public async Task SetUp()
     {
         _service = new();
-        _dateServices = new() { new DateService(), new DateService() };
+        _numberServices = new() { new NumbersService(), new NumbersService() };
 
         await _service.MakeRequestAsync("2/3");
         await _service.MakeRequestAsync("random");
 
-        await _dateServices[0].MakeRequestAsync("2/3");
-        await _dateServices[1].MakeRequestAsync("3/2");
+        await _numberServices[0].MakeRequestAsync("2/3");
+        await _numberServices[1].MakeRequestAsync("3/2");
     }
 
     [Category("AC 3.1")]
@@ -51,8 +51,8 @@ public class ValidDate
     [Test] //3.1.4
     public void GivenValidMonthDay_DateRequest_ReturnsBodyContainingMonthAndDay()
     {
-        string requestBody0 = _dateServices[0].Content.Text;
-        string requestBody1 = _dateServices[1].Content.Text;
+        string requestBody0 = _numberServices[0].Content.Text;
+        string requestBody1 = _numberServices[1].Content.Text;
 
         string expected0 = "February";
         string expected1 = "March";
@@ -65,7 +65,7 @@ public class ValidDate
     [Test] //5.1.3.1
     public void RandomDateRequest_ReturnsStatusCode200()
     {
-        int statusCode = (int)_service.CallManager.RestResponse.StatusCode;
+        int statusCode = _service.GetStatus();
 
         Assert.That(statusCode, Is.EqualTo(200));
     }

@@ -2,7 +2,7 @@
 
 namespace APIFrameworkTests;
 
-public class GivenValidRandomTriviaRequest_NumbersService
+public class GivenValidRandomRequest_NumbersService
 {
     NumbersService _service;
     [OneTimeSetUp]

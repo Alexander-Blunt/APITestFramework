@@ -4,7 +4,7 @@ namespace APIFrameworkTests;
 
 public class ValidRandomMath
 {
-    MathService _Service;
+    NumbersService _Service;
     [OneTimeSetUp]
     public async Task SetUp()
     {
