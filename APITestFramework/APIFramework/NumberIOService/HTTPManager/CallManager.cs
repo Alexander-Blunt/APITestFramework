@@ -1,31 +1,25 @@
-﻿using RestSharp;
+﻿using System.Net.Http;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace APIFramework;
 
 public class CallManager
 {
-    private readonly RestClient _client;
-    public RestResponse RestResponse { get; set; }
+    private readonly HttpClient _client;
+    public HttpResponseHeaders responseHeader { get; set; }
+    public HttpContent responseContent { get; set; }
 
     public CallManager()
     {
-        _client = new RestClient(AppConfigReader.BaseUrl);
+        _client = new HttpClient();
     }
 
-    public async Task<string> MakeRequestAsync(string input)
+    public async void MakeRequestAsync(string input)
     {
-        //Building Request
-        var request = new RestRequest(); //HTTP Request
-        request.Method = Method.Get;
-        request.AddHeader("Content-Type", "application/json");
-        request.Timeout = -1; //Response will not timeout
-
-        request.Resource = $"{input}";
-
-        RestResponse = await _client.ExecuteAsync(request);
-
-        return RestResponse.Content;
-
-        //request.resource comes in as string
+        var request = new HttpRequestMessage(HttpMethod.Get, $"AppConfigReader.BaseUrl{input}");
+        var response = await _client.SendAsync(request);
+        responseHeader = response.Headers;
+        responseContent = response.Content;
     }
 }
