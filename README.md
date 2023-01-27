@@ -56,23 +56,24 @@ will return the following JSON
 ---
 ## Instructions
 
-In order to begin testing, in the test class you must declare an appropriate service object based on the category you are testing.
+In order to begin testing, in the test class you must declare a service object.
 ```
-SingleTriviaService _myTriviaService;
-SingleMathService _myMathService;
-SingleYearService _myYearService;
-SingleDateService _myDateService;
+SingleTriviaService _myService;
 ```
 Then ensure that the SetUp function looks as follows:
 ```
 [OneTimeSetup]
 public async Task SetUp
 {
-  _myTriviaService = new();
-  await _myTriviaService.GetRequestAsync("category_string");
+  _myService = new();
+  await _myService.GetRequestAsync("*category*/*number*");
 }
 ```
-Access the API's returned status code with the ```GetStatusCode()``` method.
+Access the requests header files through the ```Service``` class methods:
+
+- ```GetStatusCode()```
+- ```GetContentType()```
+- ```GetContentLength()```
 
 The JSON returned by the API is stored inside of the Service class. Access it via the ```Content``` property. From there you can
 access the ```Text```, ```Type```, ```Found``` and ```Number``` properties. Requests of type Date and Year will also contain a
@@ -80,37 +81,42 @@ access the ```Text```, ```Type```, ```Found``` and ```Number``` properties. Requ
 
 An example of accessing the Text property would be as follows:
 ```
-string text = _myTriviaService.Content.Text;
+string text = _myService.Content.Text;
 ```
 ---
 ## Implementation
 
-The API requests are handled by 2 classes, ```Service``` and ```CallManager```.
+The API requests are handled by 3 classes, ```Service```,```CallManager``` and ```DTO```.
+
+### Service
+
+The ```Service``` class contains method definitions for the main interface between the tester and the API. This should be the only
+object which the tester needs to interface with. 
+
+*Properties*
+
+- ```CallManager```, which handles the API requests, holds the returned headers and returns a string containing the JSON body.
+- ```DTO``` which is responsible for parsing the returned string into JSON, which is then converted into a ```Model``` object.
+- ```Model``` which contains the converted body of the response.
+
+*Methods*
+
+The public facing functions which will be used by the tester are:
+
+```MakeRequestAsync()``` which handles the creation, sending, returning and converting of the request, via the contained classes.
+
+Helper functions for accessing header elements. These consist of ```GetStatusCode()```, ```GetContentType()``` and ```GetContentLength()```.
+If the project were to be extended, we would expand these helper functions to access every header from the response.
 
 ### CallManager
 
-The ```CallManager``` class is responsible for creating and sending the API request, implemented using the RestSharp library. It accepts
-the returned JSON, then returns a ```RestResponse``` object back to its containing ```Service```.
+The ```CallManager``` class is responsible for creating and sending the API request, implemented using the C#'s inbuilt HTTPClient library. It receives
+the returned request, in the form of an ```HttpResonseMessage``` object. This is split into the headers, which are stored as a property on the class, and returns a string containing the JSON body back to its containing ```Service```.
 
-### Service
-The ```Service``` abstract class contains method definitions for the main interface between the tester and the API. This should be the only
-object which the tester needs to interface with. 
+### DTO
 
-It contains a ```CallManager```, which handles the API requests and returns the ```RestResponse```.
-
-Subclasses of ```Service``` contain specific implementations of the ```MakeRequestAsync()``` method, which put appropriate suffixes for
-making specific requests from the API. These methods all take a string argument, which is the number(s) to be passed to the ```CallManager``` 
-as part of the API Request.
-
-After the ```CallManager``` returns a ```RestResponse```, the ```Service``` then parses this into a public ```Model``` object, which has public
-properties.
-
-The public facing functions which will be used by the tester are:
-- ```MakeRequestAsync()``` which is used in setup to create, send and return a request.
-- ```GetStatusCode()``` which returns the status code of the query.
-
-There is also the ```Content``` property, which contains the ```Model``` returned by the request. This will be directly accessed by the tester
-to obtain specific data from the request, such as ```Text``` for the body, ```Type``` for the type of request etc.
+The ```DTO``` is a simple object which has only one method: ```DeserializeJson()```. It takes a string input, converts it to JSON, then converts this into a ```Model```
+object which contains the body of the request. This class exists purely to separate our JSON deserializing implementation from the ```Service``` class.
 
 ---
 ## Authors
