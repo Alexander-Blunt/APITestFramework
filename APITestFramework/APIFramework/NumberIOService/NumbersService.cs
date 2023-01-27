@@ -25,14 +25,14 @@ public class NumbersService
     public async Task MakeRequestAsync(string endpoint)
     {
         await CallManager.MakeRequestAsync(endpoint);
-        Headers = CallManager.Headers;
-        DTO.DeserializeJson(CallManager.Content);
+        Headers = CallManager.ResponseHeaders;
+        DTO.DeserializeJson(CallManager.ResponseContent);
         Content = DTO.Content;
     }
 
     public int GetStatus()
     {
-        return (int)CallManager.RestResponse.StatusCode;
+        return int.Parse(Headers.GetValues("status").First());
     }
     #endregion
 }
