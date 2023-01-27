@@ -14,8 +14,8 @@ public class CallManager
     {
         _client = new HttpClient();
     }
-
-    public async void MakeRequestAsync(string input)
+    
+    public async Task<string> MakeRequestAsync(string input)
     {
         var request = new HttpRequestMessage(HttpMethod.Get, $"AppConfigReader.BaseUrl{input}");
         var response = await _client.SendAsync(request);
