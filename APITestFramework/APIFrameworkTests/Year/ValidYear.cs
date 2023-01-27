@@ -2,9 +2,9 @@
 
 namespace APIFrameworkTests;
 
-public class GivenValidYearRequest_SingleYearService
+public class GivenValidYearRequest_SingleNumbersService
 {
-    YearService _service;
+    NumbersService _service;
     [OneTimeSetUp]
     public async Task SetUp()
     {
