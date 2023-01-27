@@ -9,11 +9,11 @@ namespace APIFramework.NumberIOService.DataHandling;
 
 public class DTO
 {
-    Model? Content;
+    public Model? Content { get; set; }
 
     public void DeserializeJson(string ResponseString)
     {
         try { Content = JsonConvert.DeserializeObject<Model>(ResponseString); }
-        catch (JsonReaderException e) { }
+        catch (JsonReaderException e) { throw e; }
     }
 }
