@@ -11,7 +11,7 @@ public class CallManager
     {
         _client = new RestClient(AppConfigReader.BaseUrl);
     }
-
+    
     public async Task<string> MakeRequestAsync(string input)
     {
         //Building Request
