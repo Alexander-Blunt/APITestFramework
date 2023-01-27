@@ -27,12 +27,12 @@ public class DTOTests
     {
         _sut = new DTO();
 
-        _sut.DeserializeJson(validJson);
+        Model result = _sut.DeserializeJson(validJson);
 
-        Assert.That(_sut.Content.Text, Is.EqualTo("25 is the percentage of all scald burns to children from hot tap water."));
-        Assert.That(_sut.Content.Number, Is.EqualTo(25));
-        Assert.That(_sut.Content.Found, Is.True);
-        Assert.That(_sut.Content.Type, Is.EqualTo("trivia"));
+        Assert.That(result.Text, Is.EqualTo("25 is the percentage of all scald burns to children from hot tap water."));
+        Assert.That(result.Number, Is.EqualTo(25));
+        Assert.That(result.Found, Is.True);
+        Assert.That(result.Type, Is.EqualTo("trivia"));
     }
 
     [Category("DTO")]

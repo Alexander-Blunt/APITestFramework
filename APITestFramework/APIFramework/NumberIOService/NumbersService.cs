@@ -24,13 +24,19 @@ public class NumbersService
     public async Task MakeRequestAsync(string endpoint)
     {
         await CallManager.MakeRequestAsync(endpoint);
-        DTO.DeserializeJson(CallManager.ResponseContent);
-        Content = DTO.Content;
+        if (CallManager.ResponseHeaders["Content-Type"].Contains("aplication/json"))
+        {
+            Content = DTO.DeserializeJson(CallManager.ResponseContent);
+        }
+        else
+        {
+            Content = null;
+        }
     }
 
     public int GetStatus()
     {
-        return CallManager.GetStatusCode();
+        return CallManager.ResponseStatusCode;
     }
     #endregion
 }
