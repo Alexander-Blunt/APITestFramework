@@ -5,7 +5,7 @@ namespace APIFrameworkTests;
 
 public class InvalidDate
 {
-    DateService _service;
+    NumbersService _service;
     [OneTimeSetUp]
     public async Task SetUp()
     {
