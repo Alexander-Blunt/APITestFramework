@@ -1,24 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="APIFramework.Model">
-    <Position X="3.75" Y="1.75" Width="1.5" />
+  <Class Name="APIFramework.DateService" Collapsed="true">
+    <Position X="3.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NumberIOService\DateService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="APIFramework.CallManager">
-    <Position X="3.75" Y="3.25" Width="1.5" />
+  <Class Name="APIFramework.MathService" Collapsed="true">
+    <Position X="7.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>HTTPManager\CallManager.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NumberIOService\MathService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="APIFramework.SingleNumberService">
-    <Position X="2" Y="2.5" Width="1.5" />
+  <Class Name="APIFramework.Service" Collapsed="true">
+    <Position X="7.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SingleNumberService.cs</FileName>
+      <HashCode>AAAAAAAAAgAgAAAACAAAAAAEAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>NumberIOService\Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APIFramework.TriviaService" Collapsed="true">
+    <Position X="5.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NumberIOService\TriviaService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APIFramework.BlankService" Collapsed="true">
+    <Position X="10" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NumberIOService\BlankService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APIFramework.YearService" Collapsed="true">
+    <Position X="12.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NumberIOService\YearService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APIFramework.CallManager" Collapsed="true">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NumberIOService\HTTPManager\CallManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model" Collapsed="true">
+    <Position X="8.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAGAAAAAAAAAAAAAAAQAACAAAAAA=</HashCode>
+      <FileName>NumberIOService\DataHandling\Model.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
