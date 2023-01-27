@@ -17,7 +17,7 @@ public class CallManager
     
     public async Task MakeRequestAsync(string input)
     {
-        var request = new HttpRequestMessage(HttpMethod.Get, AppConfigReader.BaseUrl +input);
+        var request = new HttpRequestMessage(HttpMethod.Get, AppConfigReader.BaseUrl +input + "?json");
         var response = await _client.SendAsync(request);
         ResponseHeaders = response.Headers;
         ResponseContent = await response.Content.ReadAsStringAsync();

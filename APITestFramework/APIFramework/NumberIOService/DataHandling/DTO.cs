@@ -14,6 +14,6 @@ public class DTO
     public void DeserializeJson(string ResponseString)
     {
         try { Content = JsonConvert.DeserializeObject<Model>(ResponseString); }
-        catch (JsonReaderException e) { throw e; }
+        catch (JsonReaderException e) {  }
     }
 }
