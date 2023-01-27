@@ -11,7 +11,7 @@ public class DTOTests
     string validJson;
     string invalidJson;
     [OneTimeSetUp]
-    public async Task SetUp()
+    public void SetUp()
     {
         validJson = "{\r\n    " +
             "\"text\": \"25 is the percentage of all scald burns to children from hot tap water.\",\r\n    " +
