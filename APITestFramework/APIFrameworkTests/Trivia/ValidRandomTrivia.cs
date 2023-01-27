@@ -2,9 +2,9 @@
 
 namespace APIFrameworkTests;
 
-public class GivenValidRandomTriviaRequest_SingleTriviaService
+public class GivenValidRandomTriviaRequest_SingleNumbersService
 {
-    TriviaService _service;
+    NumbersService _service;
     [OneTimeSetUp]
     public async Task SetUp()
     {

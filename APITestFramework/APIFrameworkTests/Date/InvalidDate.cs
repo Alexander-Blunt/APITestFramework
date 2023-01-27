@@ -10,7 +10,7 @@ public class InvalidDate
     public async Task SetUp()
     {
         _service = new();
-        await _service.MakeRequestAsync("garbage");
+        await _service.MakeRequestAsync("garbage/date");
     }
 
     [Category("User Story #3")]
